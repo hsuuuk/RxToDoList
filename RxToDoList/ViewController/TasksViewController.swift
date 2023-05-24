@@ -16,10 +16,16 @@ class TasksViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var calendarButton: UIBarButtonItem!
+    @IBOutlet weak var addButton: UIButton!
+    
     let viewModel = TaskViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib = UINib(nibName: "TaskCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "TaskCell")
         
         tableView.rx.setDelegate(self)
             .disposed(by: rx.disposeBag)
@@ -42,13 +48,15 @@ class TasksViewController: UIViewController {
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
     }
-    
+
+    @IBAction func didTapAdd(_ sender: Any) {
+        print("11")
+    }
     @IBAction func didTapCalendar(_ sender: Any) {
         let storyboard = UIStoryboard(name: "CalendarStoryboard", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "CalendarStoryboard")
         navigationController?.pushViewController(controller, animated: true)
     }
-    
 }
 
 extension TasksViewController: UITableViewDelegate {
