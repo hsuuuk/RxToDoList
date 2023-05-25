@@ -12,65 +12,128 @@
         <!--할일 추가-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="AddStoryboard" id="Y6W-OH-hqX" customClass="AddViewController" customModule="RXToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddStoryboard" id="Y6W-OH-hqX" customClass="AddViewController" customModule="RxToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K8f-dx-MaE">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K8f-dx-MaE">
                                 <rect key="frame" x="155" y="103" width="83" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="예정"/>
                                     <segment title="항상"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="qD7-vx-Z3k"/>
+                                </connections>
                             </segmentedControl>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1um-ZP-Yox">
-                                <rect key="frame" x="37" y="184" width="25" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FsC-SC-Je7">
-                                <rect key="frame" x="70" y="184" width="286" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="013-nf-3N8">
-                                <rect key="frame" x="37" y="217" width="25" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시간" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L5M-18-F8D">
-                                <rect key="frame" x="70" y="217" width="286" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="text.bubble" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MDm-2p-8xP">
-                                <rect key="frame" x="37" y="250" width="25" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="설명" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LBe-og-sTc">
-                                <rect key="frame" x="70" y="250" width="286" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제목" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NN8-c7-FAw">
-                                <rect key="frame" x="70" y="142" width="286" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제목" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NN8-c7-FAw">
+                                <rect key="frame" x="70" y="144" width="300" height="34"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U20-JR-ipR">
+                                <rect key="frame" x="37" y="188" width="333" height="95"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kCi-Yb-ki8">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="25"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1um-ZP-Yox">
+                                                <rect key="frame" x="0.0" y="1.6666666666666643" width="25" height="22.000000000000004"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="Svd-wr-RQr"/>
+                                                    <constraint firstAttribute="height" constant="25" id="nhx-r2-Owq"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FsC-SC-Je7">
+                                                <rect key="frame" x="33" y="0.0" width="300" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="0Oe-hh-O1b"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="3rd-o6-fTP"/>
+                                                    <constraint firstAttribute="width" constant="300" id="wbi-PE-MUy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eAs-bk-W52">
+                                        <rect key="frame" x="0.0" y="35" width="333" height="25"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="013-nf-3N8">
+                                                <rect key="frame" x="0.0" y="0.99999999999999822" width="25" height="23.666666666666664"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="2rx-oG-bdB"/>
+                                                    <constraint firstAttribute="width" constant="25" id="ZKT-cg-9JA"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시간" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L5M-18-F8D">
+                                                <rect key="frame" x="33" y="0.0" width="300" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="041-Mf-TJV"/>
+                                                    <constraint firstAttribute="width" constant="300" id="pgD-IJ-FCN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hkM-Np-Cje">
+                                        <rect key="frame" x="0.0" y="70" width="333" height="25"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.bubble" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MDm-2p-8xP">
+                                                <rect key="frame" x="0.0" y="1.3333333333333339" width="25" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="76q-FI-FNe"/>
+                                                    <constraint firstAttribute="height" constant="25" id="jJA-wC-cX0"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="설명" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LBe-og-sTc">
+                                                <rect key="frame" x="33" y="0.0" width="300" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="9ih-wP-oK0"/>
+                                                    <constraint firstAttribute="height" constant="25" id="Fth-8e-Gfr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="K8f-dx-MaE" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="5jC-CY-T2X"/>
+                            <constraint firstItem="NN8-c7-FAw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="70" id="BT7-bK-wmv"/>
+                            <constraint firstItem="U20-JR-ipR" firstAttribute="top" secondItem="NN8-c7-FAw" secondAttribute="bottom" constant="10" id="dHP-6n-g2j"/>
+                            <constraint firstItem="NN8-c7-FAw" firstAttribute="top" secondItem="K8f-dx-MaE" secondAttribute="bottom" constant="10" id="ewR-pG-M8Y"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NN8-c7-FAw" secondAttribute="trailing" constant="23" id="jbC-ru-A7x"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="U20-JR-ipR" secondAttribute="trailing" constant="23" id="piJ-XT-liC"/>
+                            <constraint firstItem="K8f-dx-MaE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="wZP-yj-ie0"/>
+                            <constraint firstItem="U20-JR-ipR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="37" id="x8A-fM-YcI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="할일 추가" id="vYP-TN-WhI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="svp-Pm-2gr"/>
+                        <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="efl-ZQ-xdJ">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="didTapCancle:" destination="Y6W-OH-hqX" id="MKo-AI-cYJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="checkmark" catalog="system" id="svp-Pm-2gr">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="didTapCheck:" destination="Y6W-OH-hqX" id="7Pe-zk-cng"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dataStack" destination="U20-JR-ipR" id="xey-p1-lev"/>
                         <outlet property="dateTextField" destination="FsC-SC-Je7" id="o5C-9c-Mb6"/>
                         <outlet property="descriptionTextField" destination="LBe-og-sTc" id="YqC-ZX-dUo"/>
+                        <outlet property="segmentedControl" destination="K8f-dx-MaE" id="1cP-Vw-adf"/>
                         <outlet property="timeTextField" destination="L5M-18-F8D" id="sCY-KI-LXx"/>
                         <outlet property="titleTextField" destination="NN8-c7-FAw" id="1V6-Ez-gdN"/>
                     </connections>
@@ -95,13 +158,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Wf-wK-QkR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="210" y="-35"/>
+            <point key="canvasLocation" x="288" y="-35"/>
         </scene>
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="clock" catalog="system" width="128" height="123"/>
         <image name="text.bubble" catalog="system" width="128" height="110"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

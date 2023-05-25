@@ -11,16 +11,24 @@ import RxDataSources
 struct Task {
     var title: String
     var description: String
-    var date: Date
+    var date: String
     var time: String
     
     var isCompleted: Bool
     
-    init(title: String, description: String, date: Date, time: String) {
+    init(title: String, description: String, date: String, time: String) {
         self.title = title
         self.description = description
         self.date = date
         self.time = time
+        self.isCompleted = false
+    }
+    
+    init(title: String, description: String) {
+        self.title = title
+        self.description = description
+        self.date = ""
+        self.time = ""
         self.isCompleted = false
     }
 }

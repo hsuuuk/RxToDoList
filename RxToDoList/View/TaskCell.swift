@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import NSObject_Rx
 
 class TaskCell: UITableViewCell {
  
@@ -14,13 +16,38 @@ class TaskCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var checkButton: UIButton!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    var viewModel: TaskCellViewModel?
+    
+    var toggleCheckButton: (() -> Void)?
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    
+    func bind(task: Task) {
+        viewModel = TaskCellViewModel(task: task)
+                
+        viewModel?.titleDriver
+            .drive(titleLabel.rx.text)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel?.timeDriver
+            .drive(timeLabel.rx.text)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel?.descriptionDriver
+            .drive(descriptionLabel.rx.text)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel?.isCompletedDriver
+            .map { $0 ? "checkmark.circle.fill" : "circle"}
+            .map { UIImage(systemName: $0) }
+            .drive(checkButton.rx.backgroundImage())
+            .disposed(by: rx.disposeBag)
     }
-
+    
+    @IBAction func checkButtonToggle(_ sender: Any) {
+        toggleCheckButton?()
+    }
 }
+

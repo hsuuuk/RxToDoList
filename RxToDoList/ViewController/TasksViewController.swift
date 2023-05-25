@@ -27,16 +27,26 @@ class TasksViewController: UIViewController {
         let nib = UINib(nibName: "TaskCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "TaskCell")
         
+        //🚫 Error: Add missing conformance to 'UIScrollViewDelegate' to class 'DSViewController'
         tableView.rx.setDelegate(self)
             .disposed(by: rx.disposeBag)
-        // Error: Add missing conformance to 'UIScrollViewDelegate' to class 'DSViewController'
-        // UITableViewDelegate를 채택하면 사라진다.
+        //⚒️ Fixed: UITableViewDelegate를 채택하면 사라진다.
         
         let dataSource = RxTableViewSectionedReloadDataSource<Section> { dataSource, talbeView, indexPath, item in
             let cell = talbeView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
-            cell.titleLabel.text = item.title
-            cell.descriptionLabel.text = item.description
-            cell.timeLabel.text = item.time
+            
+            // #1
+//            cell.titleLabel.text = item.title
+//            cell.descriptionLabel.text = item.description
+//            cell.timeLabel.text = item.time
+            
+            // #2
+            cell.bind(task: item)
+            
+            cell.toggleCheckButton = { [weak self] in
+                self?.viewModel.toggleIsCompleted(indexPath: indexPath)
+            }
+
             return cell
         }
         
@@ -50,11 +60,20 @@ class TasksViewController: UIViewController {
     }
 
     @IBAction func didTapAdd(_ sender: Any) {
-        print("11")
+        let storyboard = UIStoryboard(name: "AddStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "AddStoryboard") as! AddViewController
+        //🚫 Error: modal 방식으로 화면을 띄우면 네비게이션바가 보이지 않는 에러.
+        let navigation = UINavigationController(rootViewController: controller)
+        //nav.isNavigationBarHidden = true
+        navigationController?.present(navigation, animated: true)
+        //💡 Fixed: 모달 방식은 기본적으로 네비게이션바를 띄우지 않기 때문에 화면을 네비게이션 컨트롤러로 래핑한 후에 표시.
+        
+        controller.viewModel = self.viewModel // ViewModel 인스턴스를 의존성 주입.
     }
+    
     @IBAction func didTapCalendar(_ sender: Any) {
         let storyboard = UIStoryboard(name: "CalendarStoryboard", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "CalendarStoryboard")
+        let controller = storyboard.instantiateViewController(withIdentifier: "CalendarStoryboard") as! CalendarViewController
         navigationController?.pushViewController(controller, animated: true)
     }
 }
