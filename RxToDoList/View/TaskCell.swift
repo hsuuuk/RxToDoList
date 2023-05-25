@@ -16,6 +16,8 @@ class TaskCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var checkButton: UIButton!
     
+    @IBOutlet weak var stackView: UIStackView!
+    
     var viewModel: TaskCellViewModel?
     
     var toggleCheckButton: (() -> Void)?

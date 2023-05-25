@@ -17,10 +17,10 @@ class TaskViewModel {
     init() {
         let sections = [
             Section(headerTitle: "2023년 5월 24일", items: [
-                Task(title: "점심 약속", description: "혼자서 점심약속", date: "", time: "3: 20")
+                Task(title: "점심 약속", description: "혼자서 점심약속", date: "", time: "오전 11:20")
             ]),
             Section(headerTitle: "항상", items: [
-                Task(title: "아침 먹기", description: "오트밀 50g", date: "", time: "3: 20")
+                Task(title: "아침 먹기", description: "오트밀 50g", date: "", time: "오후 3:20")
             ])
         ]
 
