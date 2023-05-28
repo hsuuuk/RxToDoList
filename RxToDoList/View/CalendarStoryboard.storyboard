@@ -61,6 +61,7 @@
                     <connections>
                         <outlet property="calendar" destination="sN7-Tn-8K5" id="9VK-oC-LAl"/>
                         <outlet property="doneButton" destination="1Ef-6Z-A1b" id="J2n-1N-z2j"/>
+                        <outlet property="heightConstraint" destination="nG7-4L-0yz" id="7ew-xE-6WI"/>
                         <outlet property="tableView" destination="TKl-9J-JtU" id="54C-I6-CXL"/>
                         <outlet property="weekButton" destination="vHv-p9-YJq" id="hAE-SA-uA6"/>
                     </connections>

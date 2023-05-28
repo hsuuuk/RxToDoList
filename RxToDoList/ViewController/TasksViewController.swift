@@ -15,9 +15,6 @@ class TasksViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var calendarButton: UIBarButtonItem!
-    @IBOutlet weak var addButton: UIButton!
-    
     let viewModel = TaskViewModel()
     
     override func viewDidLoad() {
@@ -63,8 +60,8 @@ class TasksViewController: UIViewController {
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
     }
-
-    @IBAction func didTapAdd(_ sender: Any) {
+    
+    @IBAction func showAdd(_ sender: Any) {
         let storyboard = UIStoryboard(name: "AddStoryboard", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "AddStoryboard") as! AddViewController
         //🚫 Error: modal 방식으로 화면을 띄우면 네비게이션바가 보이지 않는 에러.
@@ -87,5 +84,9 @@ class TasksViewController: UIViewController {
 extension TasksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 40 : 18
     }
 }

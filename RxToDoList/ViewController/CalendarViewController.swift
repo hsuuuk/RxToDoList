@@ -19,6 +19,8 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var weekButton: UIBarButtonItem!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    
     var viewModel: TaskViewModel!
     
     var scheduledTasks = BehaviorRelay<[String: [Task]]>(value: [:])
@@ -63,8 +65,10 @@ class CalendarViewController: UIViewController {
     @IBAction func didTapWeek(_ sender: Any) {
         if calendar.scope == .month {
             calendar.scope = .week
+            heightConstraint.constant = 120
         } else {
             calendar.scope = .month
+            heightConstraint.constant = 300
         }
     }
     
@@ -84,5 +88,9 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
 extension CalendarViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 40 : 18
     }
 }

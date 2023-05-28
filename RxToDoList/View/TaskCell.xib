@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64O-A7-A3M">
-                        <rect key="frame" x="10" y="38.666666666666664" width="30" height="29.999999999999993"/>
+                        <rect key="frame" x="10" y="41" width="25" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="HUD-Eb-esC"/>
-                            <constraint firstAttribute="height" constant="30" id="a31-7Y-IdA"/>
+                            <constraint firstAttribute="width" constant="25" id="HUD-Eb-esC"/>
+                            <constraint firstAttribute="height" constant="25" id="a31-7Y-IdA"/>
                         </constraints>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <connections>
@@ -29,10 +29,10 @@
                         </connections>
                     </button>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="gaC-L4-WWR">
-                        <rect key="frame" x="50" y="28.666666666666671" width="287" height="50"/>
+                        <rect key="frame" x="55" y="28.666666666666671" width="282" height="50"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pfD-wC-FIV">
-                                <rect key="frame" x="0.0" y="0.0" width="287" height="25"/>
+                                <rect key="frame" x="0.0" y="0.0" width="282" height="25"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fg9-6c-Q5l">
                                         <rect key="frame" x="0.0" y="0.0" width="52" height="25"/>
@@ -45,7 +45,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf4-WB-sOo">
-                                        <rect key="frame" x="57" y="0.0" width="230" height="25"/>
+                                        <rect key="frame" x="57" y="0.0" width="225" height="25"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20i-gd-hvD">
-                                <rect key="frame" x="0.0" y="25" width="287" height="25"/>
+                                <rect key="frame" x="0.0" y="25" width="282" height="25"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -71,7 +71,7 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="gaC-L4-WWR" secondAttribute="trailing" constant="10" id="0U9-2o-W2W"/>
                     <constraint firstItem="64O-A7-A3M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="7r7-vK-rP9"/>
-                    <constraint firstItem="gaC-L4-WWR" firstAttribute="leading" secondItem="64O-A7-A3M" secondAttribute="trailing" constant="10" id="Ghd-Pm-9w2"/>
+                    <constraint firstItem="gaC-L4-WWR" firstAttribute="leading" secondItem="64O-A7-A3M" secondAttribute="trailing" constant="20" id="Ghd-Pm-9w2"/>
                     <constraint firstItem="gaC-L4-WWR" firstAttribute="centerY" secondItem="64O-A7-A3M" secondAttribute="centerY" id="Ssz-pl-wGN"/>
                     <constraint firstItem="gaC-L4-WWR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WwP-7g-u2i"/>
                 </constraints>

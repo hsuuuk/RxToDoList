@@ -23,7 +23,6 @@ class TaskViewModel {
             }
     }
     
-    //var filteredSections = BehaviorRelay<[section]>(value: [])
     var filteredSections: Observable<[Section]> {
         return Observable.combineLatest(sectionObservable.asObservable(), filteredScheduledTask)
             .map { [weak self] sections, scheduledTasks in
@@ -31,7 +30,7 @@ class TaskViewModel {
                 
                 return [
                     Section(headerTitle: self?.selectedDate.value.toDateString() ?? "", items: scheduledTasks),
-                    Section(headerTitle: "항상", items: alwaysTask)
+                    Section(headerTitle: "종일", items: alwaysTask)
                 ]
             }
     }
@@ -41,49 +40,13 @@ class TaskViewModel {
     }
     
     init() {
-//        let sections = [
-//            Section(headerTitle: "2023년 5월 24일", items: [
-//                Task(title: "점심 약속", description: "혼자서 점심약속", date: "", time: "오전 11:20")
-//            ]),
-//            Section(headerTitle: "항상", items: [
-//                Task(title: "아침 먹기", description: "오트밀 50g", date: "", time: "오후 3:20")
-//            ])
-//        ]
-        
         let sections = [
             Section(headerTitle: Date().toDateString(), items: []),
-            Section(headerTitle: "항상", items: [])
+            Section(headerTitle: "종일", items: [])
         ]
         
         sectionObservable.accept(sections)
     }
-    
-//    func getFilteredSections() {
-//        let alwaysTask = sectionObservable.value[1]
-//
-//        let scheduledTasks = sections[0].items.filter { item in
-//            guard let itemDate = item.date else {
-//                return false
-//            }
-//            return Calendar.current.isDate(itemDate, inSameDayAs: selectedDate.value)
-//        }
-//
-//        let updatedSections = [
-//            Section(headerTitle: selectedDate.value, items: scheduledTasks),
-//            Section(headerTitle: "항상", items: alwaysTask)
-//        ]
-//
-//        filteredSections.accept(updatedSections)
-//    }
-
-//    lazy var scheduledTaskObservable = sectionObservable
-//        .map { sections in
-//            guard let firstSection = sections.first else { return [String: [Task]]() }
-//
-//            let tasks = firstSection.items
-//            let scheduledTask = Dictionary(grouping: tasks, by: { $0.date })
-//            return scheduledTask
-//        }
     
     func toggleIsCompleted(indexPath: IndexPath) {
         var sections = sectionObservable.value
