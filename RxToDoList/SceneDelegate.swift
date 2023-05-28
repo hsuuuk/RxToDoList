@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let calendarStoryboard = UIStoryboard(name: "CalendarStoryboard", bundle: nil)
 //        let calendarInitialViewController = calendarStoryboard.instantiateViewController(withIdentifier: "CalendarStoryboard")
 //        
-//        window?.rootViewController = addInitialViewController
+//        window?.rootViewController = calendarInitialViewController
 //        window?.makeKeyAndVisible()
     }
 

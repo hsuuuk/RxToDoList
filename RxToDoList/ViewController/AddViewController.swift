@@ -10,7 +10,6 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 import NSObject_Rx
-import Action
 
 class AddViewController: UIViewController {
 
@@ -86,16 +85,12 @@ class AddViewController: UIViewController {
     }
     
     @objc func didTapOkayButton() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 M월 d일 E요일"
-        dateTextField.text = formatter.string(from: datePicker.date ?? Date())
+        dateTextField.text = datePicker.date.toDateString()
         dateTextField.resignFirstResponder()
     }
     
     @objc func didTapOkayButton2() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "a HH시 m분"
-        timeTextField.text = formatter.string(from: datePicker.date ?? Date())
+        timeTextField.text = datePicker.date.toTimeString()
         timeTextField.resignFirstResponder()
     }
     
@@ -104,12 +99,8 @@ class AddViewController: UIViewController {
         guard let date = dateTextField.text else { return }
         guard let time = timeTextField.text else { return }
         guard let description = descriptionTextField.text else { return }
-        
-        //let newTask = Task(title: title, description: description, date: date, time: time)
-        let newTask = Task(title: title, description: description)
-        
+
         //🚫 Error: 데이터가 전달은 되지만 UI가 업데이트가 안되는 에러.
-        
 //        var task = viewModel.sectionObservable.value
 //        task[0].items.append(newTask)
 //        viewModel.sectionObservable.accept(task)
@@ -126,10 +117,10 @@ class AddViewController: UIViewController {
 
         if segmentedControl.selectedSegmentIndex == 0 {
             let newTask = Task(title: title, description: description, date: date, time: time)
-            viewModel.addTask(newTask: newTask, index: 0)
+            viewModel.addTask(newTask: newTask, sectionIndex: 0)
         } else  {
             let newTask = Task(title: title, description: description)
-            viewModel.addTask(newTask: newTask, index: 1)
+            viewModel.addTask(newTask: newTask, sectionIndex: 1)
         }
         
         navigationController?.dismiss(animated: true)

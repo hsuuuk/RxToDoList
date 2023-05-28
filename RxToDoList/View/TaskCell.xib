@@ -35,9 +35,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="287" height="25"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fg9-6c-Q5l">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="ICA-66-ghi"/>
+                                            <constraint firstAttribute="width" constant="52" id="ICA-66-ghi"/>
                                             <constraint firstAttribute="height" constant="25" id="LZM-Vu-uwT"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -45,7 +45,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf4-WB-sOo">
-                                        <rect key="frame" x="55" y="0.0" width="232" height="25"/>
+                                        <rect key="frame" x="57" y="0.0" width="230" height="25"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

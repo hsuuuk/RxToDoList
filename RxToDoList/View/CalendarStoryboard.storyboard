@@ -9,23 +9,88 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calendar View Controller-->
+        <!--날짜 선택-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="CalendarStoryboard" id="Y6W-OH-hqX" customClass="CalendarViewController" customModule="RxToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sN7-Tn-8K5" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="103" width="393" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="nG7-4L-0yz"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="KUL-XH-Z0x"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="Gsc-oe-UJ8"/>
+                                </connections>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TKl-9J-JtU">
+                                <rect key="frame" x="0.0" y="403" width="393" height="415"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sN7-Tn-8K5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="5ek-vb-y9n"/>
+                            <constraint firstItem="TKl-9J-JtU" firstAttribute="top" secondItem="sN7-Tn-8K5" secondAttribute="bottom" id="7fr-vr-lU3"/>
+                            <constraint firstItem="TKl-9J-JtU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="IqP-py-Lww"/>
+                            <constraint firstItem="TKl-9J-JtU" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="SW2-y2-gXF"/>
+                            <constraint firstItem="sN7-Tn-8K5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="c4C-fa-W2W"/>
+                            <constraint firstItem="TKl-9J-JtU" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="hhh-5M-4Ie"/>
+                            <constraint firstItem="sN7-Tn-8K5" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="nNA-b4-4jH"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="날짜 선택" id="48R-Yg-LQg">
+                        <barButtonItem key="leftBarButtonItem" image="arrow.up.left.and.arrow.down.right" catalog="system" id="vHv-p9-YJq">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="didTapWeek:" destination="Y6W-OH-hqX" id="ezr-kD-70p"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="checkmark" catalog="system" id="1Ef-6Z-A1b">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="didTapDone:" destination="Y6W-OH-hqX" id="KLj-Np-4gz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="calendar" destination="sN7-Tn-8K5" id="9VK-oC-LAl"/>
+                        <outlet property="doneButton" destination="1Ef-6Z-A1b" id="J2n-1N-z2j"/>
+                        <outlet property="tableView" destination="TKl-9J-JtU" id="54C-I6-CXL"/>
+                        <outlet property="weekButton" destination="vHv-p9-YJq" id="hAE-SA-uA6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-20"/>
+            <point key="canvasLocation" x="1052.6717557251909" y="-20.422535211267608"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bP5-tC-gbY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UlM-wl-aNW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gmm-8G-34Q">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Hh9-bj-vL2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dgw-wN-LXg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="338" y="-20"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up.left.and.arrow.down.right" catalog="system" width="128" height="115"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

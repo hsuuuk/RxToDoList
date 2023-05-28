@@ -10,7 +10,6 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 import NSObject_Rx
-import Action
 
 class TasksViewController: UIViewController {
 
@@ -32,11 +31,13 @@ class TasksViewController: UIViewController {
             .disposed(by: rx.disposeBag)
         //⚒️ Fixed: UITableViewDelegate를 채택하면 사라진다.
         
-        let dataSource = RxTableViewSectionedReloadDataSource<Section> { dataSource, talbeView, indexPath, item in
-            let cell = talbeView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
+        let dataSource = RxTableViewSectionedReloadDataSource<Section> { dataSource, tableView, indexPath, item in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
             
             if indexPath.section == 1 {
                 cell.stackView.arrangedSubviews[0].isHidden = true
+            } else {
+                cell.stackView.arrangedSubviews[0].isHidden = false
             }
             
             // #1
@@ -58,7 +59,7 @@ class TasksViewController: UIViewController {
             return dataSource.sectionModels[index].headerTitle
         }
         
-        viewModel.sectionObservable
+        viewModel.filteredSections
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
     }
@@ -78,6 +79,8 @@ class TasksViewController: UIViewController {
         let storyboard = UIStoryboard(name: "CalendarStoryboard", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "CalendarStoryboard") as! CalendarViewController
         navigationController?.pushViewController(controller, animated: true)
+        
+        controller.viewModel = self.viewModel
     }
 }
 

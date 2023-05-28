@@ -15,6 +15,7 @@
 		8F4A28E72A1D9F4B00077CD9 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A28E62A1D9F4B00077CD9 /* Section.swift */; };
 		8F4A28E92A1DA2F400077CD9 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A28E82A1DA2F400077CD9 /* AddViewController.swift */; };
 		8F4A28EB2A1DA7B400077CD9 /* AddStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F4A28EA2A1DA7B400077CD9 /* AddStoryboard.storyboard */; };
+		8F65F5EB2A1F58F0000014A8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F65F5EA2A1F58F0000014A8 /* Extension.swift */; };
 		8F88F0DD2A1D96320053F70F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88F0DC2A1D96320053F70F /* AppDelegate.swift */; };
 		8F88F0DF2A1D96320053F70F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88F0DE2A1D96320053F70F /* SceneDelegate.swift */; };
 		8F88F0E72A1D96320053F70F /* RXToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F88F0E52A1D96320053F70F /* RXToDoList.xcdatamodeld */; };
@@ -27,7 +28,6 @@
 		8F88F1052A1D97010053F70F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8F88F1042A1D97010053F70F /* RxCocoa */; };
 		8F88F1072A1D97010053F70F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8F88F1062A1D97010053F70F /* RxSwift */; };
 		8FD9FCAD2A1D9AB800270C53 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD9FCAC2A1D9AB800270C53 /* TasksViewController.swift */; };
-		8FE04FD92A1DB68900DD2D50 /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE04FD82A1DB68900DD2D50 /* AddViewModel.swift */; };
 		8FE04FDB2A1DBD5800DD2D50 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE04FDA2A1DBD5800DD2D50 /* CalendarViewController.swift */; };
 		8FE04FDD2A1DBE2200DD2D50 /* CalendarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FE04FDC2A1DBE2200DD2D50 /* CalendarStoryboard.storyboard */; };
 		8FE04FE02A1DBEFB00DD2D50 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 8FE04FDF2A1DBEFB00DD2D50 /* FSCalendar */; };
@@ -41,6 +41,7 @@
 		8F4A28E62A1D9F4B00077CD9 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		8F4A28E82A1DA2F400077CD9 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		8F4A28EA2A1DA7B400077CD9 /* AddStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddStoryboard.storyboard; sourceTree = "<group>"; };
+		8F65F5EA2A1F58F0000014A8 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = RxToDoList/Utils/Extension.swift; sourceTree = SOURCE_ROOT; };
 		8F88F0D92A1D96320053F70F /* RxToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F88F0DC2A1D96320053F70F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F88F0DE2A1D96320053F70F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		8F88F0F52A1D964B0053F70F /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		8F88F0F72A1D964F0053F70F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		8FD9FCAC2A1D9AB800270C53 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
-		8FE04FD82A1DB68900DD2D50 /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		8FE04FDA2A1DBD5800DD2D50 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		8FE04FDC2A1DBE2200DD2D50 /* CalendarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F65F5E72A1F5719000014A8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8F65F5EA2A1F58F0000014A8 /* Extension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		8F88F0D02A1D96310053F70F = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +106,7 @@
 				8F88F0FA2A1D96550053F70F /* View */,
 				8F88F0FC2A1D96560053F70F /* ViewModel */,
 				8F88F0FB2A1D96550053F70F /* ViewController */,
+				8F65F5E72A1F5719000014A8 /* Utils */,
 				8F88F0E82A1D96330053F70F /* Assets.xcassets */,
 				8F88F0EA2A1D96330053F70F /* LaunchScreen.storyboard */,
 				8F88F0ED2A1D96330053F70F /* Info.plist */,
@@ -142,7 +151,6 @@
 			children = (
 				8F88F0F52A1D964B0053F70F /* TaskViewModel.swift */,
 				8F354B4E2A1F134700942F5B /* TaskCellViewModel.swift */,
-				8FE04FD82A1DB68900DD2D50 /* AddViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -245,8 +253,8 @@
 				8F4A28E72A1D9F4B00077CD9 /* Section.swift in Sources */,
 				8F12B6522A1DD7A8006EDD67 /* TaskCell.swift in Sources */,
 				8F88F0F62A1D964B0053F70F /* TaskViewModel.swift in Sources */,
+				8F65F5EB2A1F58F0000014A8 /* Extension.swift in Sources */,
 				8F354B4F2A1F134700942F5B /* TaskCellViewModel.swift in Sources */,
-				8FE04FD92A1DB68900DD2D50 /* AddViewModel.swift in Sources */,
 				8F88F0E72A1D96320053F70F /* RXToDoList.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
