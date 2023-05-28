@@ -59,6 +59,16 @@ class TasksViewController: UIViewController {
         viewModel.filteredSections
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
+        
+        tableView.rx.itemDeleted
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                
+                var sections = self.viewModel.sectionObservable.value
+                sections[indexPath.section].items.remove(at: indexPath.row)
+                self.viewModel.sectionObservable.accept(sections)
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     @IBAction func showAdd(_ sender: Any) {

@@ -22,7 +22,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="VYe-tP-3bC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U20-JR-ipR">
@@ -97,9 +97,6 @@
                                     <segment title="예정"/>
                                     <segment title="종일"/>
                                 </segments>
-                                <connections>
-                                    <action selector="segmentAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="qD7-vx-Z3k"/>
-                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

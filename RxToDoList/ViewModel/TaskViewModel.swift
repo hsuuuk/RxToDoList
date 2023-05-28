@@ -29,7 +29,7 @@ class TaskViewModel {
                 let alwaysTask = sections[1].items
                 
                 return [
-                    Section(headerTitle: self?.selectedDate.value.toDateString() ?? "", items: scheduledTasks),
+                    Section(headerTitle: self?.selectedDate.value.toStringDate() ?? "", items: scheduledTasks),
                     Section(headerTitle: "종일", items: alwaysTask)
                 ]
             }
@@ -41,7 +41,7 @@ class TaskViewModel {
     
     init() {
         let sections = [
-            Section(headerTitle: Date().toDateString(), items: []),
+            Section(headerTitle: Date().toStringDate(), items: []),
             Section(headerTitle: "종일", items: [])
         ]
         

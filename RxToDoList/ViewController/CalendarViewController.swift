@@ -75,7 +75,6 @@ class CalendarViewController: UIViewController {
     @IBAction func didTapDone(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-    
 }
 
 extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {

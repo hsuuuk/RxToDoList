@@ -20,11 +20,8 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var dataStack: UIStackView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
+
     var viewModel: TaskViewModel!
-    
-    let dateOn: Int = 0
-    let anytimeOn: Int = 1
     
     let datePicker = UIDatePicker()
     let timePicker = UIDatePicker()
@@ -33,7 +30,7 @@ class AddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         setDatePicker()
         setTimePicker()
         
@@ -58,10 +55,10 @@ class AddViewController: UIViewController {
         datePicker.locale = Locale(identifier: "ko-KR")
         
         let toolBar = UIToolbar()
-        let okayButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(didTapOkayButton))
+        let okayButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(dateDoneButton))
         toolBar.items = [okayButton]
         toolBar.sizeToFit()
-        
+
         dateTextField.inputView = datePicker
         dateTextField.inputAccessoryView = toolBar
     }
@@ -72,7 +69,7 @@ class AddViewController: UIViewController {
         timePicker.locale = Locale(identifier: "ko-KR")
         
         let toolBar = UIToolbar()
-        let okayButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(didTapOkayButton2))
+        let okayButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(timeDoneButton))
         toolBar.items = [okayButton]
         toolBar.sizeToFit()
         
@@ -80,25 +77,21 @@ class AddViewController: UIViewController {
         timeTextField.inputAccessoryView = toolBar
     }
     
-    @IBAction func segmentAction(_ sender: Any) {
-        
+    @objc func dateDoneButton() {
+        dateTextField.text = datePicker.date.toStringDate()
+        dateTextField.resignFirstResponder() //📌 키보드 disappear. 주로 버튼 탭 이후 설정.
     }
     
-    @objc func didTapOkayButton() {
-        dateTextField.text = datePicker.date.toDateString()
-        dateTextField.resignFirstResponder()
-    }
-    
-    @objc func didTapOkayButton2() {
-        timeTextField.text = datePicker.date.toTimeString()
+    @objc func timeDoneButton() {
+        timeTextField.text = timePicker.date.toStringTime()
         timeTextField.resignFirstResponder()
     }
     
     @IBAction func didTapCheck(_ sender: Any) {
-        guard let title = titleTextField.text else { return }
-        guard let date = dateTextField.text else { return }
-        guard let time = timeTextField.text else { return }
-        guard let description = descriptionTextField.text else { return }
+        guard let title = titleTextField.text, !title.isEmpty else { return }
+        guard let date = dateTextField.text, !title.isEmpty else { return }
+        guard let time = timeTextField.text, !title.isEmpty else { return }
+        guard let description = descriptionTextField.text, !title.isEmpty else { return }
 
         //🚫 Error: 데이터가 전달은 되지만 UI가 업데이트가 안되는 에러.
 //        var task = viewModel.sectionObservable.value
