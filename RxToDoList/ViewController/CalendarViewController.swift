@@ -77,10 +77,42 @@ class CalendarViewController: UIViewController {
     }
 }
 
-extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
+extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-
         viewModel.selectedDate.accept(date)
+    }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        let firstSection = viewModel.sectionObservable.value[0]
+        let tasks = firstSection.items.filter ({ $0.date == date.toStringDate() })
+        
+        if tasks.count > 0 {
+            return 1
+        }
+
+        return 0
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        let firstSection = viewModel.sectionObservable.value[0]
+        let tasks = firstSection.items.filter ({ $0.date == date.toStringDate() })
+        
+        if !tasks.isEmpty {
+            return [UIColor.systemPink]
+        }
+        
+        return nil
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
+        let firstSection = viewModel.sectionObservable.value[0]
+        let tasks = firstSection.items.filter ({ $0.date == date.toStringDate() })
+        
+        if !tasks.isEmpty {
+            return [UIColor.systemPink]
+        }
+        
+        return nil
     }
 }
 
