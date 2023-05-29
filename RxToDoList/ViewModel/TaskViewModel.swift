@@ -26,11 +26,12 @@ class TaskViewModel {
     var filteredSections: Observable<[Section]> {
         return Observable.combineLatest(sectionObservable.asObservable(), filteredScheduledTask)
             .map { [weak self] sections, scheduledTasks in
-                let alwaysTask = sections[1].items
+                let alwaysTask = sections[0].items
                 
                 return [
+                    Section(headerTitle: "종일", items: alwaysTask),
                     Section(headerTitle: self?.selectedDate.value.toStringDate() ?? "", items: scheduledTasks),
-                    Section(headerTitle: "종일", items: alwaysTask)
+                    
                 ]
             }
     }
@@ -39,10 +40,21 @@ class TaskViewModel {
         return filteredSections.map { [$0[0]] }
     }
     
+    var filteredSection: Observable<[Section]> {
+        return Observable.combineLatest(sectionObservable.asObservable(), selectedDate.asObservable())
+            .map { sections, selectedDate in
+                
+                if let index = sections.firstIndex(where: { $0.headerTitle == selectedDate.toStringDate()}) {
+                    return [sections[index]]
+                }
+                
+                return [Section(headerTitle: selectedDate.toStringDate(), items: [])]
+            }
+    }
+    
     init() {
         let sections = [
-            Section(headerTitle: Date().toStringDate(), items: []),
-            Section(headerTitle: "종일", items: [])
+            Section(headerTitle: "할일", items: [])
         ]
         
         sectionObservable.accept(sections)
@@ -54,9 +66,25 @@ class TaskViewModel {
         sectionObservable.accept(sections)
     }
     
-    func addTask(newTask: Task, sectionIndex: Int) {
+    func toggleIsCompleted(indexPath: IndexPath, date: Date) {
         var sections = sectionObservable.value
-        sections[sectionIndex].items.append(newTask)
+        guard let index = sections.firstIndex(where: { $0.headerTitle == date.toStringDate() }) else { return }
+        sections[index].items[indexPath.row].isCompleted.toggle()
         sectionObservable.accept(sections)
+    }
+    
+    func addTask(newTask: Task) {
+        var sections = sectionObservable.value
+        
+        if sections.filter({ $0.headerTitle == newTask.date }).isEmpty {
+            let newSection = Section(headerTitle: newTask.date, items: [newTask])
+            sections.append(newSection)
+            sectionObservable.accept(sections)
+        } else {
+            if let index = sections.firstIndex(where: { $0.headerTitle == newTask.date }) {
+                sections[index].items.append(newTask)
+                sectionObservable.accept(sections)
+            }
+        }
     }
 }

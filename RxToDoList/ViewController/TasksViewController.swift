@@ -56,7 +56,7 @@ class TasksViewController: UIViewController {
             return dataSource.sectionModels[index].headerTitle
         }
         
-        viewModel.filteredSections
+        viewModel.sectionObservable
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
         

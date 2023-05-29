@@ -110,10 +110,10 @@ class AddViewController: UIViewController {
 
         if segmentedControl.selectedSegmentIndex == 0 {
             let newTask = Task(title: title, description: description, date: date, time: time)
-            viewModel.addTask(newTask: newTask, sectionIndex: 0)
+            viewModel.addTask(newTask: newTask)
         } else  {
             let newTask = Task(title: title, description: description)
-            viewModel.addTask(newTask: newTask, sectionIndex: 1)
+            viewModel.addTask(newTask: newTask)
         }
         
         navigationController?.dismiss(animated: true)

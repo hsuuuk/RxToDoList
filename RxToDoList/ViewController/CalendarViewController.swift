@@ -47,7 +47,8 @@ class CalendarViewController: UIViewController {
             cell.bind(task: item)
             
             cell.toggleCheckButton = { [weak self] in
-                self?.viewModel.toggleIsCompleted(indexPath: indexPath)
+                let date = self?.viewModel.selectedDate.value ?? Date()
+                self?.viewModel.toggleIsCompleted(indexPath: indexPath, date: date)
             }
 
             return cell
@@ -57,7 +58,7 @@ class CalendarViewController: UIViewController {
             return dataSource.sectionModels[index].headerTitle
         }
         
-        viewModel.filteredFirstSection
+        viewModel.filteredSection
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
     }
@@ -83,8 +84,9 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        let firstSection = viewModel.sectionObservable.value[0]
-        let tasks = firstSection.items.filter ({ $0.date == date.toStringDate() })
+        let sections = viewModel.sectionObservable.value
+        guard let index = sections.firstIndex(where: { $0.headerTitle == date.toStringDate() }) else { return 0 }
+        let tasks = sections[index].items.filter ({ $0.date == date.toStringDate() })
         
         if tasks.count > 0 {
             return 1
@@ -94,8 +96,9 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
-        let firstSection = viewModel.sectionObservable.value[0]
-        let tasks = firstSection.items.filter ({ $0.date == date.toStringDate() })
+        let sections = viewModel.sectionObservable.value
+        guard let index = sections.firstIndex(where: { $0.headerTitle == date.toStringDate() }) else { return nil }
+        let tasks = sections[index].items.filter ({ $0.date == date.toStringDate() })
         
         if !tasks.isEmpty {
             return [UIColor.systemPink]
@@ -105,8 +108,9 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
-        let firstSection = viewModel.sectionObservable.value[0]
-        let tasks = firstSection.items.filter ({ $0.date == date.toStringDate() })
+        let sections = viewModel.sectionObservable.value
+        guard let index = sections.firstIndex(where: { $0.headerTitle == date.toStringDate() }) else { return nil }
+        let tasks = sections[index].items.filter ({ $0.date == date.toStringDate() })
         
         if !tasks.isEmpty {
             return [UIColor.systemPink]

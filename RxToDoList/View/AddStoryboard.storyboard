@@ -95,7 +95,7 @@
                                 <rect key="frame" x="20" y="173" width="83" height="32"/>
                                 <segments>
                                     <segment title="예정"/>
-                                    <segment title="종일"/>
+                                    <segment title="미정"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
