@@ -16,9 +16,7 @@ class MemoViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let viewModel = MemoViewModel()
-    
-    //var isEditingMode = false
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,6 +50,9 @@ class MemoViewController: UIViewController {
                 }
             })
             .disposed(by: rx.disposeBag)
+        
+//        let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+//        layout?.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: collectionView.frame.width - 150)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +74,15 @@ class MemoViewController: UIViewController {
 
 extension MemoViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 100)
+        let width = collectionView.frame.width / 2 - 5
+        return CGSize(width: width, height: 100)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
 }

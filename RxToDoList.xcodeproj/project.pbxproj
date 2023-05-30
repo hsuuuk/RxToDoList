@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8F12689B2A245C63006F8B78 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F12689A2A245C63006F8B78 /* TabBarView.swift */; };
 		8F12689D2A247C8C006F8B78 /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F12689C2A247C8C006F8B78 /* MemoViewController.swift */; };
 		8F12689F2A247CBA006F8B78 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F12689E2A247CBA006F8B78 /* SearchViewController.swift */; };
 		8F1268A12A247D40006F8B78 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1268A02A247D3F006F8B78 /* Memo.swift */; };
@@ -50,7 +49,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8F12689A2A245C63006F8B78 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarView.swift; path = RxToDoList/Utils/TabBarView.swift; sourceTree = SOURCE_ROOT; };
 		8F12689C2A247C8C006F8B78 /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemoViewController.swift; path = RxToDoList/ViewController/MemoViewController.swift; sourceTree = SOURCE_ROOT; };
 		8F12689E2A247CBA006F8B78 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = RxToDoList/ViewController/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
 		8F1268A02A247D3F006F8B78 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Memo.swift; path = RxToDoList/Model/Memo.swift; sourceTree = SOURCE_ROOT; };
@@ -66,8 +64,8 @@
 		8F35874F2A2595F400B965FA /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCell.swift; path = RxToDoList/View/SearchCell.swift; sourceTree = SOURCE_ROOT; };
 		8F3587502A2595F400B965FA /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchCell.xib; path = RxToDoList/View/SearchCell.xib; sourceTree = SOURCE_ROOT; };
 		8F3587532A25972E00B965FA /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCellViewModel.swift; path = RxToDoList/ViewModel/SearchCellViewModel.swift; sourceTree = SOURCE_ROOT; };
-		8F3587572A25ACC400B965FA /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopoverViewController.swift; path = RxToDoList/ViewController/PopoverViewController.swift; sourceTree = SOURCE_ROOT; };
-		8F3587582A25ACC400B965FA /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PopoverViewController.xib; path = RxToDoList/ViewController/PopoverViewController.xib; sourceTree = SOURCE_ROOT; };
+		8F3587572A25ACC400B965FA /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopoverViewController.swift; path = RXToDoList/Utils/PopoverViewController.swift; sourceTree = SOURCE_ROOT; };
+		8F3587582A25ACC400B965FA /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PopoverViewController.xib; path = RXToDoList/Utils/PopoverViewController.xib; sourceTree = SOURCE_ROOT; };
 		8F4A28E62A1D9F4B00077CD9 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		8F4A28E82A1DA2F400077CD9 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		8F4A28EA2A1DA7B400077CD9 /* AddStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddStoryboard.storyboard; sourceTree = "<group>"; };
@@ -109,7 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				8F65F5EA2A1F58F0000014A8 /* Extension.swift */,
-				8F12689A2A245C63006F8B78 /* TabBarView.swift */,
+				8F3587572A25ACC400B965FA /* PopoverViewController.swift */,
+				8F3587582A25ACC400B965FA /* PopoverViewController.xib */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -185,8 +184,6 @@
 				8F12689C2A247C8C006F8B78 /* MemoViewController.swift */,
 				8F1268A82A248160006F8B78 /* AddMemoViewController.swift */,
 				8F12689E2A247CBA006F8B78 /* SearchViewController.swift */,
-				8F3587572A25ACC400B965FA /* PopoverViewController.swift */,
-				8F3587582A25ACC400B965FA /* PopoverViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -301,7 +298,6 @@
 				8F88F0F82A1D964F0053F70F /* Task.swift in Sources */,
 				8FD9FCAD2A1D9AB800270C53 /* TasksViewController.swift in Sources */,
 				8F1268A12A247D40006F8B78 /* Memo.swift in Sources */,
-				8F12689B2A245C63006F8B78 /* TabBarView.swift in Sources */,
 				8F4A28E92A1DA2F400077CD9 /* AddViewController.swift in Sources */,
 				8F12689D2A247C8C006F8B78 /* MemoViewController.swift in Sources */,
 				8FE04FDB2A1DBD5800DD2D50 /* CalendarViewController.swift in Sources */,

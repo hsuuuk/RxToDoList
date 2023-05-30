@@ -11,6 +11,7 @@ class MemoCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var viewModel: MemoCellViewModel?
     
@@ -27,6 +28,10 @@ class MemoCell: UICollectionViewCell {
         
         viewModel?.contentDriver
             .drive(contentLabel.rx.text)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel?.dateDriver
+            .drive(dateLabel.rx.text)
             .disposed(by: rx.disposeBag)
     }
 }

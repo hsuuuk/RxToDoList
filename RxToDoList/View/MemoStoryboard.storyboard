@@ -35,7 +35,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="143" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zve-1B-2H5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zve-1B-2H5">
                                                     <rect key="frame" x="16" y="70" width="107" height="12"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -62,6 +62,7 @@
                                         <size key="customSize" width="143" height="90"/>
                                         <connections>
                                             <outlet property="contentLabel" destination="G55-Qb-QR8" id="unJ-hx-ZmL"/>
+                                            <outlet property="dateLabel" destination="zve-1B-2H5" id="6Uq-q0-4Eh"/>
                                             <outlet property="titleLabel" destination="9ke-80-Sgx" id="EW9-0p-7aY"/>
                                         </connections>
                                     </collectionViewCell>

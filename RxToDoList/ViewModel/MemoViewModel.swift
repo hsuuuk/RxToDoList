@@ -14,15 +14,6 @@ class MemoViewModel {
     
     var memoObservable = BehaviorRelay(value: [Memo]())
     
-    init() {
-        let memos = [
-        Memo(title: "안녕하세요", content: "지금부터 메모"),
-        Memo(title: "감사합니다", content: "지금부터 메모")
-        ]
-        
-        memoObservable.accept(memos)
-    }
-    
     func addMemo(newMemo: Memo) {
         var memos = memoObservable.value
         memos.append(newMemo)

@@ -16,30 +16,6 @@ class TaskViewModel {
 
     var selectedDate = BehaviorRelay(value: Date())
     
-    var filteredScheduledTask: Observable<[Task]> {
-        return Observable.combineLatest(sectionObservable.asObservable(), selectedDate.asObservable())
-            .map { sections, selectedDate in
-                return sections[0].items.filter { Calendar.current.isDate($0.date.toDate() ?? Date(), inSameDayAs: selectedDate)}
-            }
-    }
-    
-    var filteredSections: Observable<[Section]> {
-        return Observable.combineLatest(sectionObservable.asObservable(), filteredScheduledTask)
-            .map { [weak self] sections, scheduledTasks in
-                let alwaysTask = sections[0].items
-                
-                return [
-                    Section(headerTitle: "종일", items: alwaysTask),
-                    Section(headerTitle: self?.selectedDate.value.toStringDate() ?? "", items: scheduledTasks),
-                    
-                ]
-            }
-    }
-    
-    var filteredFirstSection: Observable<[Section]> {
-        return filteredSections.map { [$0[0]] }
-    }
-    
     var filteredSection: Observable<[Section]> {
         return Observable.combineLatest(sectionObservable.asObservable(), selectedDate.asObservable())
             .map { sections, selectedDate in
@@ -55,18 +31,8 @@ class TaskViewModel {
     var searchFilteredSection = BehaviorRelay(value: [Section]())
     
     init() {
-//        let sections = [
-//            Section(headerTitle: "할일", items: [])
-//        ]
-        
         let sections = [
-            Section(headerTitle: "할일", items: [
-            Task(title: "1", description: "1"),
-            Task(title: "2", description: "2")
-            ]),
-            Section(headerTitle: "2023년 5월 30일", items: [
-            Task(title: "1", description: "1", date: "2023년 5월 31일", time: "")
-            ])
+            Section(headerTitle: "할일", items: [])
         ]
         
         sectionObservable.accept(sections)
