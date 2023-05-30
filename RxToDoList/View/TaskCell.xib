@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64O-A7-A3M">
-                        <rect key="frame" x="10" y="41" width="25" height="25"/>
+                        <rect key="frame" x="15" y="41" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="HUD-Eb-esC"/>
                             <constraint firstAttribute="height" constant="25" id="a31-7Y-IdA"/>
@@ -70,8 +70,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="gaC-L4-WWR" secondAttribute="trailing" constant="10" id="0U9-2o-W2W"/>
-                    <constraint firstItem="64O-A7-A3M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="7r7-vK-rP9"/>
-                    <constraint firstItem="gaC-L4-WWR" firstAttribute="leading" secondItem="64O-A7-A3M" secondAttribute="trailing" constant="20" id="Ghd-Pm-9w2"/>
+                    <constraint firstItem="64O-A7-A3M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="7r7-vK-rP9"/>
+                    <constraint firstItem="gaC-L4-WWR" firstAttribute="leading" secondItem="64O-A7-A3M" secondAttribute="trailing" constant="15" id="Ghd-Pm-9w2"/>
                     <constraint firstItem="gaC-L4-WWR" firstAttribute="centerY" secondItem="64O-A7-A3M" secondAttribute="centerY" id="Ssz-pl-wGN"/>
                     <constraint firstItem="gaC-L4-WWR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WwP-7g-u2i"/>
                 </constraints>

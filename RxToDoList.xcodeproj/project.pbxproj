@@ -20,6 +20,11 @@
 		8F12B6582A1DEA91006EDD67 /* TasksStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F12B6572A1DEA91006EDD67 /* TasksStoryboard.storyboard */; };
 		8F354B4F2A1F134700942F5B /* TaskCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F354B4E2A1F134700942F5B /* TaskCellViewModel.swift */; };
 		8F35874E2A258E5E00B965FA /* SearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F35874D2A258E5E00B965FA /* SearchStoryboard.storyboard */; };
+		8F3587512A2595F400B965FA /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F35874F2A2595F400B965FA /* SearchCell.swift */; };
+		8F3587522A2595F400B965FA /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F3587502A2595F400B965FA /* SearchCell.xib */; };
+		8F3587542A25972E00B965FA /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3587532A25972E00B965FA /* SearchCellViewModel.swift */; };
+		8F3587592A25ACC400B965FA /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3587572A25ACC400B965FA /* PopoverViewController.swift */; };
+		8F35875A2A25ACC400B965FA /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F3587582A25ACC400B965FA /* PopoverViewController.xib */; };
 		8F4A28E52A1D9EDD00077CD9 /* Action in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4A28E42A1D9EDD00077CD9 /* Action */; };
 		8F4A28E72A1D9F4B00077CD9 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A28E62A1D9F4B00077CD9 /* Section.swift */; };
 		8F4A28E92A1DA2F400077CD9 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A28E82A1DA2F400077CD9 /* AddViewController.swift */; };
@@ -58,6 +63,11 @@
 		8F12B6572A1DEA91006EDD67 /* TasksStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = TasksStoryboard.storyboard; path = RxToDoList/View/TasksStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
 		8F354B4E2A1F134700942F5B /* TaskCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskCellViewModel.swift; path = RxToDoList/ViewModel/TaskCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8F35874D2A258E5E00B965FA /* SearchStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = SearchStoryboard.storyboard; path = RxToDoList/View/SearchStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
+		8F35874F2A2595F400B965FA /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCell.swift; path = RxToDoList/View/SearchCell.swift; sourceTree = SOURCE_ROOT; };
+		8F3587502A2595F400B965FA /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchCell.xib; path = RxToDoList/View/SearchCell.xib; sourceTree = SOURCE_ROOT; };
+		8F3587532A25972E00B965FA /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCellViewModel.swift; path = RxToDoList/ViewModel/SearchCellViewModel.swift; sourceTree = SOURCE_ROOT; };
+		8F3587572A25ACC400B965FA /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopoverViewController.swift; path = RxToDoList/ViewController/PopoverViewController.swift; sourceTree = SOURCE_ROOT; };
+		8F3587582A25ACC400B965FA /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PopoverViewController.xib; path = RxToDoList/ViewController/PopoverViewController.xib; sourceTree = SOURCE_ROOT; };
 		8F4A28E62A1D9F4B00077CD9 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		8F4A28E82A1DA2F400077CD9 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		8F4A28EA2A1DA7B400077CD9 /* AddStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddStoryboard.storyboard; sourceTree = "<group>"; };
@@ -160,6 +170,8 @@
 				8FC253E12A24836000167134 /* AddMemoStoryboard.storyboard */,
 				8F1268A62A247FA1006F8B78 /* MemoCell.swift */,
 				8F35874D2A258E5E00B965FA /* SearchStoryboard.storyboard */,
+				8F3587502A2595F400B965FA /* SearchCell.xib */,
+				8F35874F2A2595F400B965FA /* SearchCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +185,8 @@
 				8F12689C2A247C8C006F8B78 /* MemoViewController.swift */,
 				8F1268A82A248160006F8B78 /* AddMemoViewController.swift */,
 				8F12689E2A247CBA006F8B78 /* SearchViewController.swift */,
+				8F3587572A25ACC400B965FA /* PopoverViewController.swift */,
+				8F3587582A25ACC400B965FA /* PopoverViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -184,6 +198,7 @@
 				8F354B4E2A1F134700942F5B /* TaskCellViewModel.swift */,
 				8F1268A22A247E65006F8B78 /* MemoViewModel.swift */,
 				8FC253E52A2489D800167134 /* MemoCellViewModel.swift */,
+				8F3587532A25972E00B965FA /* SearchCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -266,6 +281,8 @@
 				8F12B6582A1DEA91006EDD67 /* TasksStoryboard.storyboard in Resources */,
 				8FC253E22A24836000167134 /* AddMemoStoryboard.storyboard in Resources */,
 				8F1268A52A247F40006F8B78 /* MemoStoryboard.storyboard in Resources */,
+				8F3587522A2595F400B965FA /* SearchCell.xib in Resources */,
+				8F35875A2A25ACC400B965FA /* PopoverViewController.xib in Resources */,
 				8F88F0E92A1D96330053F70F /* Assets.xcassets in Resources */,
 				8FE04FDD2A1DBE2200DD2D50 /* CalendarStoryboard.storyboard in Resources */,
 				8F4A28EB2A1DA7B400077CD9 /* AddStoryboard.storyboard in Resources */,
@@ -288,8 +305,11 @@
 				8F4A28E92A1DA2F400077CD9 /* AddViewController.swift in Sources */,
 				8F12689D2A247C8C006F8B78 /* MemoViewController.swift in Sources */,
 				8FE04FDB2A1DBD5800DD2D50 /* CalendarViewController.swift in Sources */,
+				8F3587592A25ACC400B965FA /* PopoverViewController.swift in Sources */,
+				8F3587542A25972E00B965FA /* SearchCellViewModel.swift in Sources */,
 				8F1268A92A248160006F8B78 /* AddMemoViewController.swift in Sources */,
 				8F88F0DD2A1D96320053F70F /* AppDelegate.swift in Sources */,
+				8F3587512A2595F400B965FA /* SearchCell.swift in Sources */,
 				8F88F0DF2A1D96320053F70F /* SceneDelegate.swift in Sources */,
 				8F1268A32A247E65006F8B78 /* MemoViewModel.swift in Sources */,
 				8FC253E62A2489D800167134 /* MemoCellViewModel.swift in Sources */,

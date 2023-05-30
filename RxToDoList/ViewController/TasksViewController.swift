@@ -73,6 +73,22 @@ class TasksViewController: UIViewController {
                 self.viewModel.sectionObservable.accept(sections)
             })
             .disposed(by: rx.disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                
+                let section = viewModel.sectionObservable.value[indexPath.section]
+                let task = section.items[indexPath.row]
+                
+                let storyboard = UIStoryboard(name: "AddStoryboard", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "AddStoryboard") as! AddViewController
+                let navigation = UINavigationController(rootViewController: controller)
+                navigationController?.present(navigation, animated: true)
+                
+                controller.viewModel = self.viewModel
+                
+            })
     }
     
     @IBAction func showCalendar(_ sender: Any) {
@@ -104,10 +120,12 @@ class TasksViewController: UIViewController {
     }
     
     @IBAction func showSearch(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MemoStoryboard", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "MemoStoryboard") as! SearchViewController
+        let storyboard = UIStoryboard(name: "SearchStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "SearchStoryboard") as! SearchViewController
         let navigation = UINavigationController(rootViewController: controller)
         navigationController?.present(navigation, animated: true)
+        
+        controller.viewModel = self.viewModel
     }
 }
 

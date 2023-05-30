@@ -28,4 +28,16 @@ class MemoViewModel {
         memos.append(newMemo)
         memoObservable.accept(memos)
     }
+    
+    func updateMemo(updateMemo: Memo, index: Int) {
+        var memos = memoObservable.value
+        memos[index] = updateMemo
+        memoObservable.accept(memos)
+    }
+    
+    func deleteMemo(index: Int) {
+        var memos = memoObservable.value
+        memos.remove(at: index)
+        memoObservable.accept(memos)
+    }
 }

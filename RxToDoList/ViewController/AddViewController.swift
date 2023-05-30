@@ -11,6 +11,11 @@ import RxCocoa
 import RxDataSources
 import NSObject_Rx
 
+enum taskMode {
+    case add
+    case edit
+}
+
 class AddViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
@@ -20,6 +25,7 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var dataStack: UIStackView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
 
     var viewModel: TaskViewModel!
     
@@ -47,6 +53,11 @@ class AddViewController: UIViewController {
                 }
             })
             .disposed(by: rx.disposeBag)
+        
+        if taskMode == .edit {
+            navigationItem.title = "할일 수정"
+            
+        }
     }
     
     func setDatePicker() {

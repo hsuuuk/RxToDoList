@@ -52,9 +52,21 @@ class TaskViewModel {
             }
     }
     
+    var searchFilteredSection = BehaviorRelay(value: [Section]())
+    
     init() {
+//        let sections = [
+//            Section(headerTitle: "할일", items: [])
+//        ]
+        
         let sections = [
-            Section(headerTitle: "할일", items: [])
+            Section(headerTitle: "할일", items: [
+            Task(title: "1", description: "1"),
+            Task(title: "2", description: "2")
+            ]),
+            Section(headerTitle: "2023년 5월 31일", items: [
+            Task(title: "1", description: "1", date: "2023년 5월 31일", time: "")
+            ])
         ]
         
         sectionObservable.accept(sections)

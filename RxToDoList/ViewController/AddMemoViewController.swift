@@ -10,6 +10,7 @@ import UIKit
 enum MemoMode {
     case add
     case view
+    case edit
 }
 
 class AddMemoViewController: UIViewController {
@@ -25,6 +26,9 @@ class AddMemoViewController: UIViewController {
     
     var index: Int?
     
+    var popoverController: UIPopoverPresentationController?
+    var onDismiss: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .black
@@ -32,38 +36,58 @@ class AddMemoViewController: UIViewController {
         
         if let memo = memo {
             titleTextField.text = memo.title
+            titleTextField.isEnabled = false
             contentTextView.text = memo.content
+            contentTextView.isSelectable = false
         }
         
         if memoMode == .view {
-            doneButton.image = UIImage(systemName: "trash")
-            doneButton.tintColor = .systemRed
+            navigationItem.title = "메모"
+            doneButton.image = UIImage(systemName: "ellipsis")
+            doneButton.tintColor = .black
             doneButton.action = #selector(didTapDelete)
+        }
+        
+        if memoMode == .edit {
+            navigationItem.title = "메모 수정"
+            doneButton.image = UIImage(systemName: "pencil")
+            doneButton.tintColor = .black
+            doneButton.action = #selector(didTapEdit)
         }
     }
     
-    @objc func didTapDelete() {
-        let actionSheet = UIAlertController(title: nil, message: "정말로 삭제하시겠습니까?", preferredStyle: .actionSheet)
+    @objc func didTapEdit() {
+        guard let title = titleTextField.text else { return }
+        guard let content = contentTextView.text else { return }
+        guard let index = index else { return }
         
-        let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { [weak self] _ in
-            guard let self = self else { return }
-            var memos = self.viewModel.memoObservable.value
-            guard let index = self.index else { return }
-            memos.remove(at: index)
-            self.viewModel.memoObservable.accept(memos)
-            
-            navigationController?.popViewController(animated: true)
+        let updatedMemo = Memo(title: title, content: content)
+        
+        viewModel.updateMemo(updateMemo: updatedMemo, index: index)
+        
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
+    @objc func didTapDelete(_ sender: UIBarButtonItem) {
+        let popoverVC = PopoverViewController(nibName: "PopoverViewController", bundle: nil)
+        popoverVC.modalPresentationStyle = .popover
+        popoverVC.preferredContentSize = CGSize(width: 150, height: 90)
+        
+        popoverController = popoverVC.popoverPresentationController
+        popoverController?.delegate = self
+        popoverController?.barButtonItem = sender
+        popoverController?.permittedArrowDirections = [] //말풍선 꼬리 삭제 -> 네모
+        
+        present(popoverVC, animated: true, completion: nil)
+        
+        popoverVC.viewModel = self.viewModel
+        popoverVC.index = self.index
+        
+        popoverVC.onDismiss = {
+            self.navigationController?.dismiss(animated: true)
+            self.onDismiss?()
         }
-        
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { _ in
-            actionSheet.dismiss(animated: true)
-        }
-        cancelAction.setValue(UIColor(red: 0.478, green: 0.506, blue: 1, alpha: 1), forKey: "titleTextColor")
-        
-        actionSheet.addAction(deleteAction)
-        actionSheet.addAction(cancelAction)
-        
-        present(actionSheet, animated: true, completion: nil)
     }
     
     @IBAction func didTapDone(_ sender: Any) {
@@ -75,5 +99,11 @@ class AddMemoViewController: UIViewController {
         viewModel.addMemo(newMemo: newMemo)
         
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension AddMemoViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }

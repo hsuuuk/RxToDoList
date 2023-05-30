@@ -46,6 +46,10 @@ class MemoViewController: UIViewController {
                 controller.memo = memo
                 controller.memoMode = .view
                 controller.index = indexPath.item
+                
+                controller.onDismiss = {
+                    self.navigationController?.popViewController(animated: true)
+                }
             })
             .disposed(by: rx.disposeBag)
     }
