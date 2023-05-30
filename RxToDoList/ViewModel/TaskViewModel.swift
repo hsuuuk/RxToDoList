@@ -64,7 +64,7 @@ class TaskViewModel {
             Task(title: "1", description: "1"),
             Task(title: "2", description: "2")
             ]),
-            Section(headerTitle: "2023년 5월 31일", items: [
+            Section(headerTitle: "2023년 5월 30일", items: [
             Task(title: "1", description: "1", date: "2023년 5월 31일", time: "")
             ])
         ]
@@ -103,6 +103,19 @@ class TaskViewModel {
                 }
             }
         }
-        
+    }
+    
+    func updateTask(updateTask: Task, indexPath: IndexPath) {
+        deleteTask(indexPath: indexPath)
+        addTask(newTask: updateTask)
+    }
+    
+    func deleteTask(indexPath: IndexPath) {
+        var sections = sectionObservable.value
+        sections[indexPath.section].items.remove(at: indexPath.row)
+        if sections[indexPath.section].items.isEmpty {
+            sections.remove(at: indexPath.section)
+        }
+        sectionObservable.accept(sections)
     }
 }

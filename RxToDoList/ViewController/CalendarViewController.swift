@@ -22,9 +22,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     var viewModel: TaskViewModel!
-    
-    var scheduledTasks = BehaviorRelay<[String: [Task]]>(value: [:])
-    var filterdTask = [Task]()
+
     var selectedDate: Date = Date()
     
     override func viewDidLoad() {
@@ -50,6 +48,12 @@ class CalendarViewController: UIViewController {
                 let date = self?.viewModel.selectedDate.value ?? Date()
                 self?.viewModel.toggleIsCompleted(indexPath: indexPath, date: date)
             }
+            
+            if item.time == "" {
+                cell.stackView.arrangedSubviews[0].isHidden = true
+            } else {
+                cell.stackView.arrangedSubviews[0].isHidden = false
+            }
 
             return cell
         }
@@ -61,7 +65,10 @@ class CalendarViewController: UIViewController {
         viewModel.filteredSection
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
+        
+        viewModel.selectedDate.accept(selectedDate)
     }
+    
     @IBAction func didTapXmark(_ sender: Any) {
         navigationController?.dismiss(animated: true)
     }

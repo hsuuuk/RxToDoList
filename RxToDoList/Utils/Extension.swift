@@ -24,7 +24,7 @@ extension Date {
     
     func toStringTime() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "a h:m"
+        formatter.dateFormat = "a h:mm"
         return formatter.string(from: self)
     }
 }

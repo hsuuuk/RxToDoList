@@ -52,6 +52,28 @@ class SearchViewController: UIViewController {
         viewModel.searchFilteredSection
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+            
+                self.tableView.deselectRow(at: indexPath, animated: true)
+                
+                let storyboard = UIStoryboard(name: "AddStoryboard", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "AddStoryboard") as! AddViewController
+                controller.taskMode = .view
+                let navigation = UINavigationController(rootViewController: controller)
+                navigationController?.present(navigation, animated: true)
+                
+                controller.viewModel = self.viewModel
+                
+                let section = viewModel.searchFilteredSection.value[indexPath.section]
+                let task = section.items[indexPath.row]
+                controller.task = task
+                
+                controller.indexPath = indexPath
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     func setSearchController() {

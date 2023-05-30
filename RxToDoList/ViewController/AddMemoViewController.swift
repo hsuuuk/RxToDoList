@@ -45,7 +45,7 @@ class AddMemoViewController: UIViewController {
             navigationItem.title = "메모"
             doneButton.image = UIImage(systemName: "ellipsis")
             doneButton.tintColor = .black
-            doneButton.action = #selector(didTapDelete)
+            doneButton.action = #selector(didTapMenu)
         }
         
         if memoMode == .edit {
@@ -69,7 +69,7 @@ class AddMemoViewController: UIViewController {
         
     }
     
-    @objc func didTapDelete(_ sender: UIBarButtonItem) {
+    @objc func didTapMenu(_ sender: UIBarButtonItem) {
         let popoverVC = PopoverViewController(nibName: "PopoverViewController", bundle: nil)
         popoverVC.modalPresentationStyle = .popover
         popoverVC.preferredContentSize = CGSize(width: 150, height: 90)
