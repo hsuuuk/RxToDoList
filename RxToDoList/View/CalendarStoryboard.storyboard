@@ -45,12 +45,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="날짜 선택" id="48R-Yg-LQg">
-                        <barButtonItem key="leftBarButtonItem" image="arrow.up.left.and.arrow.down.right" catalog="system" id="vHv-p9-YJq">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="didTapWeek:" destination="Y6W-OH-hqX" id="ezr-kD-70p"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Item" image="xmark" catalog="system" id="IR7-mL-Np1">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="didTapXmark:" destination="Y6W-OH-hqX" id="JlA-2f-H7u"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="arrow.up.left.and.arrow.down.right" catalog="system" id="vHv-p9-YJq">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="didTapWeek:" destination="Y6W-OH-hqX" id="ezr-kD-70p"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="checkmark" catalog="system" id="1Ef-6Z-A1b">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -92,6 +100,7 @@
     <resources>
         <image name="arrow.up.left.and.arrow.down.right" catalog="system" width="128" height="115"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

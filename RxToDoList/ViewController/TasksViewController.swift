@@ -31,10 +31,14 @@ class TasksViewController: UIViewController {
         let dataSource = RxTableViewSectionedReloadDataSource<Section> { dataSource, tableView, indexPath, item in
             let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
             
-            if indexPath.section == 1 {
+            if indexPath.section == 0 {
                 cell.stackView.arrangedSubviews[0].isHidden = true
             } else {
-                cell.stackView.arrangedSubviews[0].isHidden = false
+                if item.time == "" {
+                    cell.stackView.arrangedSubviews[0].isHidden = true
+                } else {
+                    cell.stackView.arrangedSubviews[0].isHidden = false
+                }
             }
             
             // #1
@@ -71,6 +75,23 @@ class TasksViewController: UIViewController {
             .disposed(by: rx.disposeBag)
     }
     
+    @IBAction func showCalendar(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "CalendarStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "CalendarStoryboard") as! CalendarViewController
+        //navigationController?.pushViewController(controller, animated: true)
+        let navigation = UINavigationController(rootViewController: controller)
+        navigationController?.present(navigation, animated: true)
+        
+        controller.viewModel = self.viewModel
+    }
+    
+    @IBAction func showMemo(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MemoStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "MemoStoryboard") as! MemoViewController
+        let navigation = UINavigationController(rootViewController: controller)
+        navigationController?.present(navigation, animated: true)
+    }
+    
     @IBAction func showAdd(_ sender: Any) {
         let storyboard = UIStoryboard(name: "AddStoryboard", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "AddStoryboard") as! AddViewController
@@ -82,12 +103,11 @@ class TasksViewController: UIViewController {
         controller.viewModel = self.viewModel // ViewModel 인스턴스를 의존성 주입.
     }
     
-    @IBAction func didTapCalendar(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "CalendarStoryboard", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "CalendarStoryboard") as! CalendarViewController
-        navigationController?.pushViewController(controller, animated: true)
-        
-        controller.viewModel = self.viewModel
+    @IBAction func showSearch(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MemoStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "MemoStoryboard") as! SearchViewController
+        let navigation = UINavigationController(rootViewController: controller)
+        navigationController?.present(navigation, animated: true)
     }
 }
 

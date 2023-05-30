@@ -76,15 +76,21 @@ class TaskViewModel {
     func addTask(newTask: Task) {
         var sections = sectionObservable.value
         
-        if sections.filter({ $0.headerTitle == newTask.date }).isEmpty {
-            let newSection = Section(headerTitle: newTask.date, items: [newTask])
-            sections.append(newSection)
+        if newTask.date == "" {
+            sections[0].items.append(newTask)
             sectionObservable.accept(sections)
         } else {
-            if let index = sections.firstIndex(where: { $0.headerTitle == newTask.date }) {
-                sections[index].items.append(newTask)
+            if sections.filter({ $0.headerTitle == newTask.date }).isEmpty {
+                let newSection = Section(headerTitle: newTask.date, items: [newTask])
+                sections.append(newSection)
                 sectionObservable.accept(sections)
+            } else {
+                if let index = sections.firstIndex(where: { $0.headerTitle == newTask.date }) {
+                    sections[index].items.append(newTask)
+                    sectionObservable.accept(sections)
+                }
             }
         }
+        
     }
 }

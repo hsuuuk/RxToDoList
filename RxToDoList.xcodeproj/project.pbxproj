@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F12689B2A245C63006F8B78 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F12689A2A245C63006F8B78 /* TabBarView.swift */; };
+		8F12689D2A247C8C006F8B78 /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F12689C2A247C8C006F8B78 /* MemoViewController.swift */; };
+		8F12689F2A247CBA006F8B78 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F12689E2A247CBA006F8B78 /* SearchViewController.swift */; };
+		8F1268A12A247D40006F8B78 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1268A02A247D3F006F8B78 /* Memo.swift */; };
+		8F1268A32A247E65006F8B78 /* MemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1268A22A247E65006F8B78 /* MemoViewModel.swift */; };
+		8F1268A52A247F40006F8B78 /* MemoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1268A42A247F40006F8B78 /* MemoStoryboard.storyboard */; };
+		8F1268A72A247FA1006F8B78 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1268A62A247FA1006F8B78 /* MemoCell.swift */; };
+		8F1268A92A248160006F8B78 /* AddMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1268A82A248160006F8B78 /* AddMemoViewController.swift */; };
 		8F12B6522A1DD7A8006EDD67 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F12B6512A1DD7A8006EDD67 /* TaskCell.swift */; };
 		8F12B6562A1DE872006EDD67 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F12B6542A1DE872006EDD67 /* TaskCell.xib */; };
 		8F12B6582A1DEA91006EDD67 /* TasksStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F12B6572A1DEA91006EDD67 /* TasksStoryboard.storyboard */; };
 		8F354B4F2A1F134700942F5B /* TaskCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F354B4E2A1F134700942F5B /* TaskCellViewModel.swift */; };
+		8F35874E2A258E5E00B965FA /* SearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F35874D2A258E5E00B965FA /* SearchStoryboard.storyboard */; };
 		8F4A28E52A1D9EDD00077CD9 /* Action in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4A28E42A1D9EDD00077CD9 /* Action */; };
 		8F4A28E72A1D9F4B00077CD9 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A28E62A1D9F4B00077CD9 /* Section.swift */; };
 		8F4A28E92A1DA2F400077CD9 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A28E82A1DA2F400077CD9 /* AddViewController.swift */; };
@@ -27,6 +36,8 @@
 		8F88F1022A1D96F20053F70F /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 8F88F1012A1D96F20053F70F /* RxDataSources */; };
 		8F88F1052A1D97010053F70F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8F88F1042A1D97010053F70F /* RxCocoa */; };
 		8F88F1072A1D97010053F70F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8F88F1062A1D97010053F70F /* RxSwift */; };
+		8FC253E22A24836000167134 /* AddMemoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC253E12A24836000167134 /* AddMemoStoryboard.storyboard */; };
+		8FC253E62A2489D800167134 /* MemoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC253E52A2489D800167134 /* MemoCellViewModel.swift */; };
 		8FD9FCAD2A1D9AB800270C53 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD9FCAC2A1D9AB800270C53 /* TasksViewController.swift */; };
 		8FE04FDB2A1DBD5800DD2D50 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE04FDA2A1DBD5800DD2D50 /* CalendarViewController.swift */; };
 		8FE04FDD2A1DBE2200DD2D50 /* CalendarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FE04FDC2A1DBE2200DD2D50 /* CalendarStoryboard.storyboard */; };
@@ -34,10 +45,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F12689A2A245C63006F8B78 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarView.swift; path = RxToDoList/Utils/TabBarView.swift; sourceTree = SOURCE_ROOT; };
+		8F12689C2A247C8C006F8B78 /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemoViewController.swift; path = RxToDoList/ViewController/MemoViewController.swift; sourceTree = SOURCE_ROOT; };
+		8F12689E2A247CBA006F8B78 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = RxToDoList/ViewController/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		8F1268A02A247D3F006F8B78 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Memo.swift; path = RxToDoList/Model/Memo.swift; sourceTree = SOURCE_ROOT; };
+		8F1268A22A247E65006F8B78 /* MemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemoViewModel.swift; path = RxToDoList/ViewModel/MemoViewModel.swift; sourceTree = SOURCE_ROOT; };
+		8F1268A42A247F40006F8B78 /* MemoStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = MemoStoryboard.storyboard; path = RxToDoList/View/MemoStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
+		8F1268A62A247FA1006F8B78 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemoCell.swift; path = RxToDoList/View/MemoCell.swift; sourceTree = SOURCE_ROOT; };
+		8F1268A82A248160006F8B78 /* AddMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddMemoViewController.swift; path = RxToDoList/ViewController/AddMemoViewController.swift; sourceTree = SOURCE_ROOT; };
 		8F12B6512A1DD7A8006EDD67 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskCell.swift; path = RxToDoList/View/TaskCell.swift; sourceTree = SOURCE_ROOT; };
 		8F12B6542A1DE872006EDD67 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TaskCell.xib; path = RxToDoList/View/TaskCell.xib; sourceTree = SOURCE_ROOT; };
 		8F12B6572A1DEA91006EDD67 /* TasksStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = TasksStoryboard.storyboard; path = RxToDoList/View/TasksStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
 		8F354B4E2A1F134700942F5B /* TaskCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskCellViewModel.swift; path = RxToDoList/ViewModel/TaskCellViewModel.swift; sourceTree = SOURCE_ROOT; };
+		8F35874D2A258E5E00B965FA /* SearchStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = SearchStoryboard.storyboard; path = RxToDoList/View/SearchStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
 		8F4A28E62A1D9F4B00077CD9 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		8F4A28E82A1DA2F400077CD9 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		8F4A28EA2A1DA7B400077CD9 /* AddStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddStoryboard.storyboard; sourceTree = "<group>"; };
@@ -51,6 +71,8 @@
 		8F88F0ED2A1D96330053F70F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F88F0F52A1D964B0053F70F /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		8F88F0F72A1D964F0053F70F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		8FC253E12A24836000167134 /* AddMemoStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = AddMemoStoryboard.storyboard; path = RxToDoList/View/AddMemoStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
+		8FC253E52A2489D800167134 /* MemoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemoCellViewModel.swift; path = RxToDoList/ViewModel/MemoCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8FD9FCAC2A1D9AB800270C53 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		8FE04FDA2A1DBD5800DD2D50 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		8FE04FDC2A1DBE2200DD2D50 /* CalendarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarStoryboard.storyboard; sourceTree = "<group>"; };
@@ -77,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				8F65F5EA2A1F58F0000014A8 /* Extension.swift */,
+				8F12689A2A245C63006F8B78 /* TabBarView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -120,6 +143,7 @@
 			children = (
 				8F88F0F72A1D964F0053F70F /* Task.swift */,
 				8F4A28E62A1D9F4B00077CD9 /* Section.swift */,
+				8F1268A02A247D3F006F8B78 /* Memo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,10 +152,14 @@
 			isa = PBXGroup;
 			children = (
 				8F12B6572A1DEA91006EDD67 /* TasksStoryboard.storyboard */,
-				8F4A28EA2A1DA7B400077CD9 /* AddStoryboard.storyboard */,
-				8FE04FDC2A1DBE2200DD2D50 /* CalendarStoryboard.storyboard */,
 				8F12B6542A1DE872006EDD67 /* TaskCell.xib */,
 				8F12B6512A1DD7A8006EDD67 /* TaskCell.swift */,
+				8F4A28EA2A1DA7B400077CD9 /* AddStoryboard.storyboard */,
+				8FE04FDC2A1DBE2200DD2D50 /* CalendarStoryboard.storyboard */,
+				8F1268A42A247F40006F8B78 /* MemoStoryboard.storyboard */,
+				8FC253E12A24836000167134 /* AddMemoStoryboard.storyboard */,
+				8F1268A62A247FA1006F8B78 /* MemoCell.swift */,
+				8F35874D2A258E5E00B965FA /* SearchStoryboard.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -142,6 +170,9 @@
 				8FD9FCAC2A1D9AB800270C53 /* TasksViewController.swift */,
 				8F4A28E82A1DA2F400077CD9 /* AddViewController.swift */,
 				8FE04FDA2A1DBD5800DD2D50 /* CalendarViewController.swift */,
+				8F12689C2A247C8C006F8B78 /* MemoViewController.swift */,
+				8F1268A82A248160006F8B78 /* AddMemoViewController.swift */,
+				8F12689E2A247CBA006F8B78 /* SearchViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -151,6 +182,8 @@
 			children = (
 				8F88F0F52A1D964B0053F70F /* TaskViewModel.swift */,
 				8F354B4E2A1F134700942F5B /* TaskCellViewModel.swift */,
+				8F1268A22A247E65006F8B78 /* MemoViewModel.swift */,
+				8FC253E52A2489D800167134 /* MemoCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -231,9 +264,12 @@
 				8F88F0EC2A1D96330053F70F /* LaunchScreen.storyboard in Resources */,
 				8F12B6562A1DE872006EDD67 /* TaskCell.xib in Resources */,
 				8F12B6582A1DEA91006EDD67 /* TasksStoryboard.storyboard in Resources */,
+				8FC253E22A24836000167134 /* AddMemoStoryboard.storyboard in Resources */,
+				8F1268A52A247F40006F8B78 /* MemoStoryboard.storyboard in Resources */,
 				8F88F0E92A1D96330053F70F /* Assets.xcassets in Resources */,
 				8FE04FDD2A1DBE2200DD2D50 /* CalendarStoryboard.storyboard in Resources */,
 				8F4A28EB2A1DA7B400077CD9 /* AddStoryboard.storyboard in Resources */,
+				8F35874E2A258E5E00B965FA /* SearchStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,18 +280,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F12689F2A247CBA006F8B78 /* SearchViewController.swift in Sources */,
 				8F88F0F82A1D964F0053F70F /* Task.swift in Sources */,
 				8FD9FCAD2A1D9AB800270C53 /* TasksViewController.swift in Sources */,
+				8F1268A12A247D40006F8B78 /* Memo.swift in Sources */,
+				8F12689B2A245C63006F8B78 /* TabBarView.swift in Sources */,
 				8F4A28E92A1DA2F400077CD9 /* AddViewController.swift in Sources */,
+				8F12689D2A247C8C006F8B78 /* MemoViewController.swift in Sources */,
 				8FE04FDB2A1DBD5800DD2D50 /* CalendarViewController.swift in Sources */,
+				8F1268A92A248160006F8B78 /* AddMemoViewController.swift in Sources */,
 				8F88F0DD2A1D96320053F70F /* AppDelegate.swift in Sources */,
 				8F88F0DF2A1D96320053F70F /* SceneDelegate.swift in Sources */,
+				8F1268A32A247E65006F8B78 /* MemoViewModel.swift in Sources */,
+				8FC253E62A2489D800167134 /* MemoCellViewModel.swift in Sources */,
 				8F4A28E72A1D9F4B00077CD9 /* Section.swift in Sources */,
 				8F12B6522A1DD7A8006EDD67 /* TaskCell.swift in Sources */,
 				8F88F0F62A1D964B0053F70F /* TaskViewModel.swift in Sources */,
 				8F65F5EB2A1F58F0000014A8 /* Extension.swift in Sources */,
 				8F354B4F2A1F134700942F5B /* TaskCellViewModel.swift in Sources */,
 				8F88F0E72A1D96320053F70F /* RXToDoList.xcdatamodeld in Sources */,
+				8F1268A72A247FA1006F8B78 /* MemoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -62,6 +62,9 @@ class CalendarViewController: UIViewController {
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
     }
+    @IBAction func didTapXmark(_ sender: Any) {
+        navigationController?.dismiss(animated: true)
+    }
     
     @IBAction func didTapWeek(_ sender: Any) {
         if calendar.scope == .month {
@@ -74,7 +77,7 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func didTapDone(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        navigationController?.dismiss(animated: true)
     }
 }
 
