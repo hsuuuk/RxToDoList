@@ -48,6 +48,9 @@
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="liR-TS-4rP"/>
+                                        </connections>
                                     </textView>
                                 </subviews>
                             </stackView>

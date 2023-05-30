@@ -34,10 +34,15 @@ class AddMemoViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.topItem?.title = ""
         
+        contentTextView.delegate = self
+        contentTextView.text = "메모 입력"
+        contentTextView.textColor = UIColor.lightGray
+        
         if let memo = memo {
             titleTextField.text = memo.title
             titleTextField.isEnabled = false
             contentTextView.text = memo.content
+            contentTextView.textColor = .black
             contentTextView.isSelectable = false
         }
         
@@ -105,5 +110,21 @@ class AddMemoViewController: UIViewController {
 extension AddMemoViewController: UIPopoverPresentationControllerDelegate {
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
+    }
+}
+
+extension AddMemoViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "메모 입력"
+            textView.textColor = UIColor.lightGray
+        }
     }
 }
